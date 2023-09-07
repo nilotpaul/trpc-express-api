@@ -10,10 +10,6 @@ function App() {
     onSettled: () => {
       todos.refetch();
     },
-
-    onSuccess: () => {
-      setTodoInput("");
-    },
   });
   const deleteTodo = trpc.deleteTodo.useMutation({
     onSettled: () => {
@@ -93,6 +89,7 @@ function App() {
           type="text"
           name="todo"
           placeholder="write todo..."
+          value={todoInput}
           onChange={(e) => setTodoInput(e.target.value)}
         />
         <button type="submit">Submit</button>
